@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+}
+
+.MuiGrid-container {
+  flex-wrap: nowrap;
+}
+
+.CodeMirror {
+  height: calc(100vh - 250px) !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #155a9a;
+  transform: scale(1.05);
+}
+
+.MuiInputBase-root {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.MuiInputBase-root:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  animation: l14 2s infinite; 
+}
+
+@keyframes l14 {
+  0% {
+    box-shadow: 
+      50px -50px #B5AC01,
+      50px -50px #ECBA09,
+      50px -50px #0000,
+      50px -50px #0000,
+      50px -50px #0000;
+  }
+  25% {
+    box-shadow: 
+      100px -50px #0000,
+      50px  -50px #ECBA09,
+      50px  -50px #E86E1C,
+      50px  -50px #0000,
+      50px  -50px #0000;
+  }
+  50% {
+    box-shadow: 
+      100px -50px  #0000,
+      50px  -100px #0000,
+      50px  -50px  #E86E1C,
+      50px  -50px  #D41E45,
+      50px  -50px  #0000;
+  }
+  75% {
+    box-shadow: 
+      100px -50px  #0000,
+      50px  -100px #0000,
+       0px  -50px  #0000,
+      50px  -50px  #D41E45,
+      50px  -50px  #B5AC01;
+  }
+  100% {
+    box-shadow: 
+      100px -50px  #0000,
+      50px  -100px #0000,
+       0px  -50px  #0000,
+      50px    0px  #0000,
+      50px  -50px  #B5AC01;
+  }
+}
+
+.loader-text {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l4 1s steps(4) infinite;
+}
+
+.loader-text:before {
+  content: "Loading...";
+}
+
+@keyframes l4 {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}
+
+.back-button {
+  background: #0061af;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  text-align: center; /* Ensures the text is centered */
+  padding: 5px;
+  width: 44px;
+  margin-left: 17px;
+  margin-top: 10px;
+}
+
+.CodeMirror {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* // review code animation  */
+
+
