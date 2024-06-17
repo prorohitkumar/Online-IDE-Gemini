@@ -30,7 +30,7 @@ const Chatbot = ({ code, isVisible, onClose }) => {
     setLoading(true); // Start loading
 
     try {
-      const response = await fetch('http://localhost:5001/chat', {
+      const response = await fetch('https://code-reviewr-backend-python.onrender.com/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
