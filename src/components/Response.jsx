@@ -56,11 +56,11 @@ const calculateIssueCounts = (reviewData) => {
   const counts = { critical: 0, moderate: 0, normal: 0 };
 
   const allIssues = [
-    ...reviewData.codeIssues,
-    ...reviewData.performanceOptimizationIssues,
-    ...reviewData.securityVulnerabilityIssues,
-    ...reviewData.scalabilityIssues,
-    ...reviewData.engineeringPracticesIssues
+    ...(reviewData.codeIssues || []),
+    ...(reviewData.performanceOptimizationIssues || []),
+    ...(reviewData.securityVulnerabilityIssues || []),
+    ...(reviewData.scalabilityIssues || []),
+    ...(reviewData.engineeringPracticesIssues || [])
   ];
 
   allIssues.forEach(issue => {
@@ -156,16 +156,16 @@ function Response({ code, setCode, fixedCode, enhancedCode, errorDescription, er
           <>
             {errorMessage ? (
               <Typography variant="body1" style={{ color: 'red' }}>{errorMessage}</Typography>
+            ) : reviewData ? (
+              <List>
+                <IssueList issues={reviewData.codeIssues || []} title="Code Issues" />
+                <IssueList issues={reviewData.performanceOptimizationIssues || []} title="Performance/Optimization Issues" />
+                <IssueList issues={reviewData.securityVulnerabilityIssues || []} title="Security Vulnerabilities" />
+                <IssueList issues={reviewData.scalabilityIssues || []} title="Scalability Concerns" />
+                <IssueList issues={reviewData.engineeringPracticesIssues || []} title="Engineering Practices" />
+              </List>
             ) : (
-              reviewData && (
-                <List>
-                  <IssueList issues={reviewData.codeIssues} title="Code Issues" />
-                  <IssueList issues={reviewData.performanceOptimizationIssues} title="Performance/Optimization Issues" />
-                  <IssueList issues={reviewData.securityVulnerabilityIssues} title="Security Vulnerabilities" />
-                  <IssueList issues={reviewData.scalabilityIssues} title="Scalability Concerns" />
-                  <IssueList issues={reviewData.engineeringPracticesIssues} title="Engineering Practices" />
-                </List>
-              )
+              <Typography variant="body1" style={{ color: 'gray' }}>Your response will appear here...</Typography>
             )}
           </>
         )}

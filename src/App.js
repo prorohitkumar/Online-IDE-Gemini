@@ -81,7 +81,7 @@ function App() {
     <Grid container spacing={2} style={{ height: '100vh' }}>
       <Grid item xs={2.4} style={{ height: '101%', overflowY: 'auto', padding: '10px', paddingRight: '0px', paddingLeft: '16px', backgroundColor: '#000' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems:'flex-start', marginBottom: '1px',backgroundColor:'white' }}>
-          <img src="/images/stackroute_logo.png" alt="StackRoute Logo" style={{ height: '160px' }} />
+          <img src="/images/stackroute_logo.png" alt="StackRoute Logo" className="logo-shadow" style={{ height: '120px' }} />
           <button className="back-button" onClick={backToHome} style={{ marginLeft: '1px' }}>
             <ArrowBackIosNewIcon style={{ color: 'white' }} />
           </button>

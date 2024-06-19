@@ -55,7 +55,7 @@ function CodeEditor({ file, onSave, setCode, setFixedCode, setEnhancedCode, setE
     setLoading(true); // Start loading
     let reviewResponse;
     try {
-      reviewResponse = await fetch('https://code-reviewr-backend-python.onrender.com/review_code', {
+      reviewResponse = await fetch('http://localhost:5001/review_code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,6 +72,10 @@ function CodeEditor({ file, onSave, setCode, setFixedCode, setEnhancedCode, setE
 
       if (review.error) {
         console.error('Error:', review.error);
+        setErrorDescription(JSON.stringify({
+          error: review.error,
+          raw_response: responseData,
+        }, null, 2));
       } else {
         setFixedCode(review.refactoredCode || '// No refactored code provided.');
         setErrorDescription(JSON.stringify({
@@ -118,7 +122,7 @@ function CodeEditor({ file, onSave, setCode, setFixedCode, setEnhancedCode, setE
           }}
         />
       </div>
-      <Button variant="contained" color="secondary" onClick={handleReview} style={{ height: '50px', marginTop: '20px', marginLeft: '80%' }}>
+      <Button variant="contained" color="secondary" onClick={handleReview} style={{ height: '50px', marginTop: '10px', marginLeft: '80%' }}>
         Review Code
       </Button>
     </div>

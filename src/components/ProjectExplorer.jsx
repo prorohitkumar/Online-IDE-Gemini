@@ -4,6 +4,7 @@ import FolderIcon from '@mui/icons-material/Folder';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import './ProjectExplorer.css'; // Import the CSS file
 
 /**
  * The ProjectExplorer component displays the file and folder structure.
