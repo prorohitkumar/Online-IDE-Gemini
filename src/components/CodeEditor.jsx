@@ -55,7 +55,7 @@ function CodeEditor({ file, onSave, setCode, setFixedCode, setEnhancedCode, setE
     setLoading(true); // Start loading
     let reviewResponse;
     try {
-      reviewResponse = await fetch('http://localhost:5001/review_code', {
+      reviewResponse = await fetch('https://code-reviewr-backend-python.onrender.com/review_code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
